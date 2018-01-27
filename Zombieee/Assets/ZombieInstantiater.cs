@@ -9,8 +9,9 @@ public class ZombieInstantiater : MonoBehaviour {
 
     public GameObject zombiePrefab;
     public Transform samuzai;//hey
+    public Transform ethan;//hey
 
-	void Awake ()
+    void Awake ()
     {
         Utility.guiManager = guiManager;
 
@@ -36,6 +37,14 @@ public class ZombieInstantiater : MonoBehaviour {
 
     private void Update()
     {
+        if (Vector3.Distance(ethan.position, samuzai.position) < 3)
+        {
+            ethan.transform.position = new Vector3(Random.Range(-10, 10), ethan.transform.position.y, Random.Range(-10, 10));
+            Utility.guiManager.samuZaiScoreText.text = "samuZai: " + ++Utility.guiManager.samuZaiScore;
+
+            Debug.LogError("samurai ethanın ağzına sıçtı");        
+        }
+
         for (int i = 0; i < zombies.Count; i++)
             if (zombies[i] != null)
             {

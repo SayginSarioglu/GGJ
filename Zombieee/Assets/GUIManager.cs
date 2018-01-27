@@ -5,6 +5,10 @@ public class GUIManager : MonoBehaviour {
 
     private int health = 100;
     public Text healthTxt;
+    public Text ethanScoreText;
+    public Text samuZaiScoreText;
+    public int ethanScore = 0;
+    public int samuZaiScore = 0;
 
     public void AddHealth(int health)
     {
