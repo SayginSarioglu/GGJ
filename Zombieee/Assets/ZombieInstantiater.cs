@@ -8,7 +8,7 @@ public class ZombieInstantiater : MonoBehaviour {
     public List<GameObject> zombies;
 
     public GameObject zombiePrefab;
-    public Transform samuzai;
+    public Transform samuzai;//hey
 
 	void Awake ()
     {
