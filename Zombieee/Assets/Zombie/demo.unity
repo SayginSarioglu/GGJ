@@ -1762,7 +1762,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.23464534, g: 0.5147059, b: 0.45676228, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2112,6 +2112,8 @@ MonoBehaviour:
   healthTxt: {fileID: 391084236}
   ethanScoreText: {fileID: 1699780516}
   samuZaiScoreText: {fileID: 323293630}
+  ethanScore: 0
+  samuZaiScore: 0
 --- !u!1 &744001857
 GameObject:
   m_ObjectHideFlags: 0
@@ -6843,7 +6845,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3857ca3f881b4a842880d9a9c8d96b46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8049,7 +8051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2014092403
 Light:
   m_ObjectHideFlags: 0
