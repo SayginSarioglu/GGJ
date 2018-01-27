@@ -32,11 +32,13 @@ namespace UnitySampleAssets.Effects
 
                 var col = collisionEvents[i].colliderComponent;
 
+                /*
                 if (col.attachedRigidbody != null)
                 {
                     Vector3 vel = collisionEvents[i].velocity;
                     col.attachedRigidbody.AddForce(vel*force, ForceMode.Impulse);
                 }
+                */
 
                 other.BroadcastMessage("Extinguish", SendMessageOptions.DontRequireReceiver);
 
