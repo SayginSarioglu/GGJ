@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class ZombieInstantiater : MonoBehaviour {
 
-    public GameObject zombiePrefab;
+    public GUIManager guiManager;
+    public List<GameObject> zombies;
 
-	void Start () {
+    public GameObject zombiePrefab;
+    public Transform samuzai;
+
+	void Awake ()
+    {
+        Utility.guiManager = guiManager;
+
+        zombies = new List<GameObject>();
         StartCoroutine(InstantiateObject());		
 	}
 
@@ -14,7 +22,6 @@ public class ZombieInstantiater : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         GameObject go = (Instantiate(zombiePrefab, Vector3.zero, new Quaternion(0, 0, 0, 0)) as GameObject);
-        //go.transform.SetParent(content, false);
 
         int rndX = Random.Range(-20, 21);
         int rndZ = Random.Range(0, 2);
@@ -24,7 +31,17 @@ public class ZombieInstantiater : MonoBehaviour {
             rndZ = rndX;
 
         go.transform.position = new Vector3(rndX, 0, rndZ);
+        zombies.Add(go);
         StartCoroutine(InstantiateObject());
     }
 
+    private void Update()
+    {
+        for (int i = 0; i < zombies.Count; i++)
+            if (zombies[i] != null && Vector3.Distance(zombies[i].transform.position, samuzai.position) < 3)
+            {
+                Utility.guiManager.AddHealth(5);
+                Destroy(zombies[i]);
+            }
+    }
 }

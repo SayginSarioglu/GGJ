@@ -34,6 +34,9 @@ public class Move : MonoBehaviour {
         if (Mathf.Abs(transform.position.x) > 1)
             transform.position += pos;
         else
+        {
+            Utility.guiManager.AddHealth(-5);
             Destroy(gameObject);
+        }
     }
 }

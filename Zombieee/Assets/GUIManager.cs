@@ -1,0 +1,22 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+public class GUIManager : MonoBehaviour {
+
+    private int health = 100;
+    public Text healthTxt;
+
+    public void AddHealth(int health)
+    {
+        this.health += health;
+        if (this.health > 100)
+            this.health = 100;
+        if (this.health < 0)
+        {
+            this.health = 0;
+            Debug.LogError("Ta ta ta öldün Çık");
+        }
+
+        healthTxt.text = this.health + "";
+    }
+}
