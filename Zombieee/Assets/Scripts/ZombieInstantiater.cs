@@ -8,8 +8,10 @@ public class ZombieInstantiater : MonoBehaviour {
 
     public GameObject zombiePrefab;
     public Transform samuzai;//hey
+    
+    public Transform ethan;//hey
 
-	void Awake ()
+    void Awake ()
     {
         Utility.guiManager = guiManager;
         
@@ -18,7 +20,6 @@ public class ZombieInstantiater : MonoBehaviour {
 
     private IEnumerator InstantiateObject()
     {
-        yield return new WaitForSeconds(0.1f);
         GameObject go = (Instantiate(zombiePrefab, Vector3.zero, new Quaternion(0, 0, 0, 0)) as GameObject);
         go.GetComponent<Animator>().SetFloat("speed", Random.Range(0.8f, 1.2f));
         go.GetComponent<Animator>().SetBool("mirror", Random.Range(0f, 1f) > 0.5f);
@@ -30,10 +31,19 @@ public class ZombieInstantiater : MonoBehaviour {
         pos = Quaternion.Euler(0,angle, 0) * pos;
         go.transform.position = pos;
         go.transform.LookAt(Vector3.zero);
+        yield return new WaitForSeconds(0.1f * Random.Range(1,10));
         StartCoroutine(InstantiateObject());
     }
 
     private void Update()
     {
+        if (Vector3.Distance(ethan.position, samuzai.position) < 3)
+        {
+            ethan.transform.position = new Vector3(Random.Range(-10, 10), ethan.transform.position.y, Random.Range(-10, 10));
+            Utility.guiManager.samuZaiScoreText.text = "samuZai: " + ++Utility.guiManager.samuZaiScore;
+
+            Debug.LogError("samurai ethanın ağzına sıçtı");
+        }
+        
     }
 }
