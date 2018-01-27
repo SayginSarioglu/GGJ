@@ -20,4 +20,9 @@ public class SamuzaiController : MonoBehaviour {
         transform.Rotate(new Vector3(0, x, 0));
         transform.Translate(new Vector3(0, 0, z));
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.GetComponent<HitObject>().Hit(Vector3.Angle(transform.forward, other.gameObject.transform.forward)/180f);
+    }
 }
