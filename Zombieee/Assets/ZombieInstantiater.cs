@@ -20,17 +20,16 @@ public class ZombieInstantiater : MonoBehaviour {
 
     private IEnumerator InstantiateObject()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         GameObject go = (Instantiate(zombiePrefab, Vector3.zero, new Quaternion(0, 0, 0, 0)) as GameObject);
 
-        int rndX = Random.Range(-20, 21);
-        int rndZ = Random.Range(0, 2);
-        if (rndZ == 0)
-            rndZ = -rndX;
-        else
-            rndZ = rndX;
+        int dist = Random.Range(10, 50);
+        int angle = Random.Range(0, 360);
 
-        go.transform.position = new Vector3(rndX, 0, rndZ);
+        Vector3 pos = new Vector3(dist, 0, 0);
+        pos = Quaternion.Euler(0,angle, 0) * pos;
+        go.transform.position = pos;
+        go.transform.LookAt(Vector3.zero);
         zombies.Add(go);
         StartCoroutine(InstantiateObject());
     }
@@ -38,10 +37,18 @@ public class ZombieInstantiater : MonoBehaviour {
     private void Update()
     {
         for (int i = 0; i < zombies.Count; i++)
-            if (zombies[i] != null && Vector3.Distance(zombies[i].transform.position, samuzai.position) < 3)
+            if (zombies[i] != null)
             {
-                Utility.guiManager.AddHealth(5);
-                Destroy(zombies[i]);
+                if (Vector3.Distance(zombies[i].transform.position, samuzai.position) < 3)
+                {
+                    Utility.guiManager.AddHealth(1);
+                    Destroy(zombies[i]);
+                }
+                else if (Vector3.Distance(zombies[i].transform.position, Vector3.zero) < 5)
+                {
+                    Utility.guiManager.AddHealth(-10);
+                    Destroy(zombies[i]);
+                }
             }
     }
 }

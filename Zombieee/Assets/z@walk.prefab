@@ -544,7 +544,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4974400754677902}
   - component: {fileID: 95692723318286488}
-  - component: {fileID: 114909959029147518}
   m_Layer: 0
   m_Name: z@walk
   m_TagString: Untagged
@@ -1312,7 +1311,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787459086970958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: -4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4169197576595310}
@@ -1348,22 +1347,11 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cf0f47def7bc04eb98206ca9187dbd22, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114909959029147518
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1787459086970958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8c6f03714494edd9d56094faf5138e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &137109041806964962
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
