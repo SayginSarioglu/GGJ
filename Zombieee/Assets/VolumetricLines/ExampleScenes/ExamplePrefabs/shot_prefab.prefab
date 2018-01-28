@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3370324}
   - component: {fileID: 11489952}
   - component: {fileID: 11468384}
+  - component: {fileID: 65688495316376210}
   m_Layer: 0
   m_Name: shot_prefab
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.3700647, y: -4.7406354e-18, z: 0.6404977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb039d3a64491f4ebfc852d25b5ee70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  samurai: {fileID: 0}
+  ethan: {fileID: 0}
 --- !u!114 &11489952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,3 +145,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136330}
   m_IsPrefabParent: 1
+--- !u!65 &65688495316376210
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.05334, y: 11.961205, z: 62.236523}
+  m_Center: {x: 2.1210537, y: 5.4806023, z: 23.911982}

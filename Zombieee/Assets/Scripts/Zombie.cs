@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class Zombie : HitObject {
     private bool attacking = false;
+    private bool hitted = false;
     private int hit;
 
 	// Use this for initialization
 	void Start () {
         attacking = false;
+        hitted = false;
         hit = 0;
 	}
 	
@@ -24,7 +26,7 @@ public class Zombie : HitObject {
 
     void Attack()
     {
-        Utility.guiManager.AddHealth(-10);
+        Utility.gameRect.tower.GotHit();
     }
 
     void DestroyObject()
@@ -32,10 +34,13 @@ public class Zombie : HitObject {
         Destroy(gameObject);
     }
 
-    public override void Hit(float direction)
+    public override bool Hit(float direction)
     {
+        if (hitted)
+            return false;
         GetComponent<Animator>().SetFloat("hitDirection", direction);
         GetComponent<Animator>().SetTrigger("fall");
         Invoke("DestroyObject", 1.5f);
+        return hitted = true;
     }
 }

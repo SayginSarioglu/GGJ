@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class HitObject : MonoBehaviour
 {
-    public abstract void Hit(float direction);
+    public abstract bool Hit(float direction);
 }

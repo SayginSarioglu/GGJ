@@ -4,7 +4,7 @@ using System.Collections;
 public class CannonBehavior : MonoBehaviour {
 
 	public Transform m_cannonRot;
-	public Transform m_muzzle;
+	public EthanRed m_muzzle;
 	public GameObject m_shotPrefab;
 	public Texture2D m_guiTexture;
 
@@ -18,9 +18,10 @@ public class CannonBehavior : MonoBehaviour {
 	void Update () 
 	{
 		
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.LeftShift) && Utility.gameRect.tower.GetEnergy())
 		{
-			GameObject go = GameObject.Instantiate(m_shotPrefab, m_muzzle.position, m_muzzle.rotation) as GameObject;
+			GameObject go = GameObject.Instantiate(m_shotPrefab, transform.position, m_muzzle.transform.rotation) as GameObject;
+            go.GetComponent<ShotBehavior>().ethan = m_muzzle;
             go.transform.localScale *= 0.001f;
 			GameObject.Destroy(go, 2.5f);
 		}

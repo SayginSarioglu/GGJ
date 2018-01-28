@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Plane : HitObject {
-    public override void Hit(float direction)
+    public override bool Hit(float direction)
     {
+        return false;
     }
 }
